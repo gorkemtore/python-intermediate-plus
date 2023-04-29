@@ -6,6 +6,8 @@ import html
 from twilio.rest import Client
 
 STOCK = "TSLA"
+COMPANY_NAME = "Tesla Inc"
+
 account_sid = os.environ.get("ACCOUNT_SID")
 auth_token = os.environ.get("AUTH_TOKEN")
 alpha_api_key = os.environ.get("ALPHA_API_KEY")
@@ -34,7 +36,7 @@ def get_news():
     top_news = []
     news_parameters = {
         "apiKey": "45559f545b484d20a7d8a6eb0097dede",
-        "q": STOCK,
+        "qInTitle": COMPANY_NAME,
     }
     news_response = requests.get("https://newsapi.org/v2/everything", params=news_parameters)
     news_data = news_response.json()
